@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<style>
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: linear-gradient(to bottom, #2F4F4F, #000000);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100rem;
+    height: 100rem;
+  }
+
+  .texto{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 50px;
+  }
+
+  .div0 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 200px 0 0 400px;
+    padding: 50px;
+    background-color: #696969;
+    border-radius: 15%;
+  }
+
+  .lista{
+    list-style: none;
+    letter-spacing: 2px;
+    line-height: 1.5em;
+  }
+
+  .botoes{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+  }
+
+  .botao:hover{
+    transform: scale(1.2);
+    background-color: #696969;
+    border-radius: 50%;
+  }
+
+  .botao{
+    margin: 16px 50px 0 4em;
+    width: 60%;
+    padding: 10px;
+    border-radius: 20%;
+    cursor:pointer;
+  }
+
+</style>
+  <body>
+    <h1 class="texto">Dados dos usuários</h1>
+    <div class="div0">
+    <ul class="lista">
+      <h2> seus dados</h2><br>
+      <li><strong>ID:</strong> <%= user.id %></li>
+      <li><strong>Nome:</strong> <%= user.nome %></li>
+      <li><strong>Idade:</strong> <%= user.idade %></li>
+      <li><strong>UF:</strong> <%= user.uf %></li>
+      <li><strong>Cidade:</strong> <%= user.Cidade %></li>
+      <li><strong>CPF:</strong> <%= user.CPF %></li>
+      <li><strong>RG:</strong> <%= user.RG %></li>
+      <li><strong>Estado civil:</strong> <%= user.Estado_civil %></li>
+      <li><strong>Ano de nascimento:</strong> <%= user.Ano_nascimento %></li>
+      <li><strong>CEP:</strong> <%= user.CEP %></li>
+    </ul>
+    <div class="botoes">
+    <form action="/logout" method="get">
+      <button type="submit" class="botao">Sair</button>
+  </form>
+    <form action="/excluir" method="post">
+      <input type="hidden" name="userId" value="<%= user.id %>">
+      <button type="submit" class="botao">Excluir informações</button>
+    </form>
+  </div>
+  </div>
+  </body>
+  </html>
+</html>
